@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>WebBooks</RootNamespace>
+    <AssemblyName>WebBooks</AssemblyName>
+    <Company>Industrious One</Company>
+    <Product>WebBooks</Product>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebBooks.Common\WebBooks.Common.csproj" />
+  </ItemGroup>
+</Project>

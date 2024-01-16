@@ -4,6 +4,9 @@ namespace WebBooks;
 
 public sealed class MainWindowController : NSWindowController
 {
+	private readonly WKWebView _webView;
+
+
 	public MainWindowController ()
 	{
 		// Create the main application window
@@ -17,12 +20,18 @@ public sealed class MainWindowController : NSWindowController
 		WindowFrameAutosaveName = "MainWindow";
 
 		// Create a web view to put in it
-		var webView = new WKWebView (CGRect.Empty, new WKWebViewConfiguration ());
-		Window.ContentView = webView;
+		_webView = new WKWebView (CGRect.Empty, new WKWebViewConfiguration ());
+		Window.ContentView = _webView;
 
-		// Load the first page into the web view
-		var url = new NSUrl ("https://deadwinter.cc/page/1");
-		var request = new NSUrlRequest (url);
-		webView.LoadRequest (request);
+	}
+
+
+	public String? CurrentUrl => _webView.Url?.ToString ();
+
+
+	public void LoadUrl (String url)
+	{
+		var request = new NSUrlRequest (new NSUrl (url));
+		_webView.LoadRequest (request);
 	}
 }

@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBooks.Console", "Code\We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBooks.macOS", "Code\WebBooks.macOS\WebBooks.macOS.csproj", "{40B768D8-DCF3-4353-A813-089E779F2E0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBooks.iOS", "Code\WebBooks.iOS\WebBooks.iOS.csproj", "{3006724E-A8E3-4411-BF05-BB6432A88424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,5 +47,9 @@ Global
 		{40B768D8-DCF3-4353-A813-089E779F2E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40B768D8-DCF3-4353-A813-089E779F2E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40B768D8-DCF3-4353-A813-089E779F2E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3006724E-A8E3-4411-BF05-BB6432A88424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3006724E-A8E3-4411-BF05-BB6432A88424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3006724E-A8E3-4411-BF05-BB6432A88424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3006724E-A8E3-4411-BF05-BB6432A88424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -6,12 +6,12 @@ public class AppDelegate : NSApplicationDelegate
 	private const String InitialPageUrl = "https://deadwinter.cc/page/1";
 	private const String PrefsLastUrlKey = "LastVisitedUrl";
 
-	private readonly MainWindowController _mainWindowController = new ();
+	private readonly MainWindowController _mainWindowController = new();
 
 
 	public override void DidFinishLaunching (NSNotification notification)
 	{
-		_mainWindowController.ShowWindow(this);
+		_mainWindowController.ShowWindow (this);
 
 		// Figure out what page to load. Use the last visited site that we stored last
 		// run, or the books first page is nothing was previously stored. Just doing the

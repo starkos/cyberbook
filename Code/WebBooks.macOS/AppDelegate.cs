@@ -3,7 +3,7 @@ namespace WebBooks;
 [Register ("AppDelegate")]
 public class AppDelegate : NSApplicationDelegate
 {
-	private const String InitialPageUrl = "https://deadwinter.cc/page/1";
+	private const String InitialPageUrl = "https://essentialcsharp.com/home";
 	private const String PrefsLastUrlKey = "LastVisitedUrl";
 
 	private readonly MainWindowController _mainWindowController = new();

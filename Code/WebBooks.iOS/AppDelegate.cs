@@ -3,7 +3,7 @@ using WebKit;
 namespace WebBooks;
 
 [Register ("AppDelegate")]
-public class AppDelegate : UIApplicationDelegate
+public class AppDelegate : UIApplicationDelegate, IWKNavigationDelegate
 {
 	private const String InitialPageUrl = "https://essentialcsharp.com/home";
 	private const String PrefsLastUrlKey = "LastVisitedUrl";
@@ -18,12 +18,14 @@ public class AppDelegate : UIApplicationDelegate
 	}
 
 
+	// When the application finishes launching...
 	public override Boolean FinishedLaunching (UIApplication application, NSDictionary launchOptions)
 	{
 		// Create a web view to show the content
 		var config = new WKWebViewConfiguration ();
 		_webView = new WKWebView (CGRect.Empty, config) {
-			AllowsBackForwardNavigationGestures = true
+			AllowsBackForwardNavigationGestures = true,
+			NavigationDelegate = this
 		};
 
 		var viewController = new UIViewController () {
@@ -35,7 +37,7 @@ public class AppDelegate : UIApplicationDelegate
 		Window.MakeKeyAndVisible ();
 
 		// Figure out what page to load. Use the last visited site that we stored last
-		// run, or the books first page is nothing was previously stored. Just doing the
+		// run, or the book's first page is nothing was previously stored. Just doing the
 		// simplest thing here to get something useful.
 
 		String lastVisitedUrl = NSUserDefaults.StandardUserDefaults.StringForKey (PrefsLastUrlKey);
@@ -50,12 +52,12 @@ public class AppDelegate : UIApplicationDelegate
 	}
 
 
-	public override void DidEnterBackground (UIApplication application)
+	// Each time the user navigates...
+	[Export ("webView:didFinishNavigation:")]
+	public void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
 	{
-		// Remember where we left off when quitting
+		// ...save the current URL
 		var currentUrl = _webView?.Url?.ToString ();
 		NSUserDefaults.StandardUserDefaults.SetString (currentUrl, PrefsLastUrlKey);
-
-		Console.WriteLine ($"DidEnterBackground: {currentUrl}");
 	}
 }

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0-macos</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SupportedOSPlatformVersion>10.15</SupportedOSPlatformVersion>
+		<RootNamespace>Cyberbook.MacOS</RootNamespace>
+		<AssemblyName>Cyberbook</AssemblyName>
+		<Company>Industrious One</Company>
+		<Product>Cyberbook.MacOS</Product>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<EnableCodeSigning>true</EnableCodeSigning>
+		<CodesignKey>Mac Developer</CodesignKey>
+		<CodesignProvision>Automatic</CodesignProvision>
+		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<EnableCodeSigning>true</EnableCodeSigning>
+		<CodesignKey>Mac Developer</CodesignKey>
+		<CodesignProvision>Automatic</CodesignProvision>
+		<CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Vendor\industrious-storage\Code\Industrious.Storage\Industrious.Storage.csproj" />
+	  <ProjectReference Include="..\Cyberbook.Common\Cyberbook.Common.csproj" />
+	</ItemGroup>
+</Project>

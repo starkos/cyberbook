@@ -1,0 +1,3 @@
+[submodule "Vendor/industrious-storage"]
+	path = Vendor/industrious-storage
+	url = git@github.com:starkos/industrious-storage.git

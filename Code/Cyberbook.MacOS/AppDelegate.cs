@@ -1,4 +1,6 @@
 using Cyberbook.Common;
+using Cyberbook.Common.ViewModels;
+using Cyberbook.MacOS.Views;
 
 using Industrious.Storage;
 
@@ -9,14 +11,17 @@ namespace Cyberbook.MacOS;
 public class AppDelegate : NSApplicationDelegate
 {
 	private CommonApplication? _commonApplication;
-
-	private readonly MainWindowController _mainWindowController = new();
+	private MainWindowController? _mainWindowController;
 
 
 	public override void DidFinishLaunching(NSNotification notification)
 	{
-		_commonApplication = CommonApplication.Create(FileStorageProvider.Icloud);
+		_commonApplication = CommonApplication.New(FileStorageProvider.Icloud);
 
+		var initialViewModel = new LibraryViewModel();
+		var initialViewController = new LibraryViewController(initialViewModel);
+
+		_mainWindowController = MainWindowController.New(initialViewController);
 		_mainWindowController.ShowWindow(this);
 	}
 

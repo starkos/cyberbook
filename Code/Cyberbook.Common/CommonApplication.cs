@@ -10,7 +10,7 @@ public class CommonApplication
 	}
 
 
-	public static CommonApplication Create(FileStorageProvider defaultStorageProvider)
+	public static CommonApplication New(FileStorageProvider defaultStorageProvider)
 	{
 		var fileStorage = Industrious.Storage.FileStorage.Connect(defaultStorageProvider);
 

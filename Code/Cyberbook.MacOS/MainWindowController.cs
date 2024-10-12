@@ -2,14 +2,23 @@ namespace Cyberbook.MacOS;
 
 public sealed class MainWindowController : NSWindowController
 {
-	public MainWindowController ()
-	{
-		const NSWindowStyle style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
-		Window = new NSWindow (new CGRect (100, 100, 800, 600), style, NSBackingStore.Buffered, true)
-		{
-			Title = "Cyberbook"
-		};
+	private const NSWindowStyle MainWindowStyle = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
 
-		WindowFrameAutosaveName = "MainWindow";
+
+	private MainWindowController ()
+	{}
+
+
+	public static MainWindowController New(NSViewController initialViewController)
+	{
+		return new MainWindowController
+		{
+			Window = new NSWindow (new CGRect (100, 100, 800, 600), MainWindowStyle, NSBackingStore.Buffered, true)
+			{
+				ContentView = initialViewController.View,
+				Title = "Cyberbook"
+			},
+			WindowFrameAutosaveName = "MainWindow"
+		};
 	}
 }
